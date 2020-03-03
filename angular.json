@@ -5,7 +5,11 @@
   "projects": {
     "rpg-room": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "styleext": "scss"
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -125,10 +129,5 @@
       }
     }
   },
-  "defaultProject": "rpg-room",
-  "schematics": {
-    "@schematics/angular:component": {
-      "styleext": "scss"
-    }
-  }
+  "defaultProject": "rpg-room"
 }

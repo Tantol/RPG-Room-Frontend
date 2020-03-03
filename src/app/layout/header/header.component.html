@@ -1,0 +1,15 @@
+<header  [ngClass]="{'clicked' : showMenu}">
+  <!-- TODO CHANGE LOGO + ADD LEFT PANEL -->
+	<img  class="logo" src="../../../assets/img/logo.png">
+	<div class="menu-modal">
+		<div class="blob"></div>
+		<app-layout-menu class="menu"></app-layout-menu>
+	</div>
+	<div class="head">
+    <div class="trigger" (click)="showHideMenu()">
+      <div class="line one"></div>
+      <div class="line two"></div>
+      <div class="line three"></div>
+    </div>
+	</div>
+</header>
