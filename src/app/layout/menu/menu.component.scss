@@ -1,0 +1,21 @@
+::ng-deep .navigation-tabs .mat-tab-label-container {
+  display:none;
+}
+.menu-nav {
+  width: 50vw;
+  .breadcrumbs {
+    display: flex;
+    flex-direction: row;
+    margin: 1%;
+    height: 30px;
+    .item {
+      padding-top: 2.5px;
+      cursor: pointer;
+      vertical-align: middle;
+    }
+  }
+  .icon {
+    padding-left: 20%;
+    vertical-align: middle;
+  }
+}

@@ -9,19 +9,31 @@ import {
 import { SharedModule } from '@shared/shared.module';
 import { AppRoutingModule } from '@app/app-routing.module';
 import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatListModule } from '@angular/material/list';
+import { SingleImageBoxComponent } from './layout/menu/components/single-image-box/single-image-box.component';
+import { MultiImageBoxComponent } from './layout/menu/components/multi-image-box/multi-image-box.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    MenuComponent
+    MenuComponent,
+    SingleImageBoxComponent,
+    MultiImageBoxComponent
   ],
   imports: [
     CommonModule,
     BrowserModule,
     SharedModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatIconModule,
+    MatTabsModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
