@@ -3,13 +3,19 @@
   "compilerOptions": {
     "outDir": "./out-tsc/app",
     "types": [],
+    "allowSyntheticDefaultImports": true,
     "paths": {
       "@app/*": ["app/*"],
       "@env/*": ["environments/*"],
       "@shared/*": ["app/shared/*"],
       "@core/*": ["app/core/*"],
       "@layout/*": ["app/layout/*"]
-    }
+    },
+    "typeRoots": [
+      "node_modules/@types",
+      "node_modules/@angular"
+    ],
+    "importHelpers": true
   },
   "files": [
     "src/main.ts",
