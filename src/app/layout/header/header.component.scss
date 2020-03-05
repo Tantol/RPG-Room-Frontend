@@ -1,3 +1,7 @@
+$box-animation-time: .3s;
+$info-animation-time: .5s;
+$menu-animation-time: .8s;
+$authentication-animation-time: 1s;
 
 header {
 	height: 120px;
@@ -52,8 +56,8 @@ header {
 	height: 100vh;
 	visibility: hidden;
 	opacity: 0;
-	transition: all .3s ease-in;
-	-webkit-transition: all .3s ease-in;
+	transition: all $box-animation-time ease-in;
+	-webkit-transition: all $box-animation-time ease-in;
   pointer-events: none;
   .blob {
     display: block;
@@ -66,20 +70,52 @@ header {
     top: 50%;
     transform: translateY(-50%);
     -webkit-transform: translateY(-50%);
-    transition: all .3s ease-in;
+    transition: all $box-animation-time ease-in;
+  }
+  .info {
+    width: inherit;
+    position: fixed;
+    left: 10%;
+    top: 10%;
+    color: white;
+    opacity: 0;
+    transition: all $info-animation-time ease-in;
+    -webkit-transition: all $info-animation-time ease-in;
+    -webkit-transition-delay: $info-animation-time;
+    -moz-transition-delay: $info-animation-time;
+    -o-transition-delay: $info-animation-time;
+    transition-delay: $info-animation-time;
   }
   .menu {
+    width: inherit;
     position: fixed;
-    left: 20%;
+    left: 10%;
     top: 30%;
     color: white;
     opacity: 0;
-    transition: all .3s ease-in;
-    -webkit-transition: all .3s ease-in;
-    -webkit-transition-delay: .3s;
-    -moz-transition-delay: .3s;
-    -o-transition-delay: .3s;
-    transition-delay: .3s;
+    transition: all $menu-animation-time ease-in;
+    -webkit-transition: all $menu-animation-time ease-in;
+    -webkit-transition-delay: $menu-animation-time;
+    -moz-transition-delay: $menu-animation-time;
+    -o-transition-delay: $menu-animation-time;
+    transition-delay: $menu-animation-time;
+  }
+  .authentication {
+    display: flex;
+    position: fixed;
+    right: 10%;
+    top: 80%;
+    color: white;
+    opacity: 0;
+    transition: all $authentication-animation-time ease-in;
+    -webkit-transition: all $authentication-animation-time ease-in;
+    -webkit-transition-delay: $authentication-animation-time;
+    -moz-transition-delay: $authentication-animation-time;
+    -o-transition-delay: $authentication-animation-time;
+    transition-delay: $authentication-animation-time;
+    p {
+      margin-right: 15px;
+    }
   }
 }
 
@@ -114,7 +150,7 @@ header.clicked {
       border-radius: 0px;
     }
   }
-  .menu {
+  .menu, .authentication, .info {
     opacity: 1;
   }
 }

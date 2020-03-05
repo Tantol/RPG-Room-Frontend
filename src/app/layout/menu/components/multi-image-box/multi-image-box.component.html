@@ -1,1 +1,11 @@
-<p>multi-image-box works!</p>
+<div class="row">
+  <ng-container *ngIf="menuImage.length === 2">
+    <app-layout-menu-image-box *ngFor="let image of menuImage" class="col-md-6" [menuImage]="image"></app-layout-menu-image-box>
+  </ng-container>
+  <ng-container *ngIf="menuImage.length === 3">
+    <app-layout-menu-image-box *ngFor="let image of menuImage" class="col-md-4" [menuImage]="image"></app-layout-menu-image-box>
+  </ng-container>
+  <div class="col-md-12 d-flex justify-content-center align-items-center description">
+    {{ description }}
+  </div>
+</div>

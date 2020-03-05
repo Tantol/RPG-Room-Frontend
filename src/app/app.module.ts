@@ -15,6 +15,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatListModule } from '@angular/material/list';
 import { SingleImageBoxComponent } from './layout/menu/components/single-image-box/single-image-box.component';
 import { MultiImageBoxComponent } from './layout/menu/components/multi-image-box/multi-image-box.component';
+import { ImageBoxComponent } from './layout/menu/components/image-box/image-box.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { MultiImageBoxComponent } from './layout/menu/components/multi-image-box
     FooterComponent,
     MenuComponent,
     SingleImageBoxComponent,
-    MultiImageBoxComponent
+    MultiImageBoxComponent,
+    ImageBoxComponent
   ],
   imports: [
     CommonModule,

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { MenuImage } from '../../menu-interface';
 
 @Component({
   selector: 'app-layout-menu-single-image-box',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./single-image-box.component.scss']
 })
 export class SingleImageBoxComponent implements OnInit {
+  @Input() menuImage: MenuImage;
+  @Input() description: string;
 
   constructor() { }
 

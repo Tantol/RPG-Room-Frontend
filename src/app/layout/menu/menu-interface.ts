@@ -5,24 +5,25 @@ export interface MenuTab {
 
 interface MenuBaseOption {
   title: string;
-  imageBox: MenuImage | MenuImage[];
-  description?: string;
 }
-export interface MenuOption extends MenuBaseOption{
+export interface MenuOption extends MenuBaseOption {
   route: string;
 }
-export interface MenuGoToOption {
+export interface MenuGoToOption extends MenuBaseOption {
   goToTab: number;
+  imageBox: MenuImage | MenuImage[];
+  description: string;
 }
 export interface MenuImage {
   title: string;
   src: string;
-  route: string;
-  description?: string;
+  description: string;
+  route?: string;
 }
 
 export interface MenuBreadcrumb {
   index: number;
   title: string;
   imageBox: MenuImage | MenuImage[];
+  description: string;
 }

@@ -1,29 +1,27 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-6 menu-nav">
-      <div class="breadcrumbs">
-        <div (click)="goBack2Main()" class="item" class="item">{{ 'Main' }}</div>
-        <ng-container *ngFor="let breadcrumb of breadcrumbs">
-          <mat-icon>chevron_right</mat-icon>
-          <span class="item" (click)="goBack(breadcrumb.index, breadcrumb.imageBox);">{{ breadcrumb.title }}</span>
-        </ng-container>
-      </div>
-      <mat-tab-group class="navigation-tabs" [selectedIndex]="selectedTab" dynamicHeight>
-        <mat-tab *ngFor="let tab of tabs">
-          <mat-nav-list>
-            <div *ngFor="let option of tab.options">       
-              <a mat-list-item *ngIf="option.route" (mouseover)="setImageBox(option.imageBox)" [routerLink]="option.route">{{ option.title }}</a>
-              <a mat-list-item *ngIf="option.goToTab" (mouseover)="setImageBox(option.imageBox)" (click)="goTo(option.goToTab, option.title, option.imageBox)">
-                {{ option.title }}<div><mat-icon class="icon">chevron_right</mat-icon></div>
-              </a>
-            </div> 
-          </mat-nav-list>
-        </mat-tab>
-      </mat-tab-group>
+<div class="row">
+  <div class="col-md-2 menu-nav">
+    <div class="breadcrumbs">
+      <div (click)="goBack2Main()" class="item" class="item">{{ 'Main' }}</div>
+      <ng-container *ngFor="let breadcrumb of breadcrumbs">
+        <mat-icon>chevron_right</mat-icon>
+        <span class="item" (click)="goBack(breadcrumb.index, breadcrumb.imageBox, breadcrumb.description);">{{ breadcrumb.title }}</span>
+      </ng-container>
     </div>
-    <div class="col-md-6 d-flex justify-content-center align-items-center">
-      <app-layout-menu-single-image-box *ngIf="!isMultiImageBox()"></app-layout-menu-single-image-box>
-      <app-layout-menu-multi-image-box *ngIf="isMultiImageBox()"></app-layout-menu-multi-image-box>
-    </div>
+    <mat-tab-group class="navigation-tabs" [selectedIndex]="selectedTab" dynamicHeight>
+      <mat-tab *ngFor="let tab of tabs">
+        <mat-nav-list>
+          <div *ngFor="let option of tab.options">       
+            <a mat-list-item *ngIf="option.route" [routerLink]="option.route">{{ option.title }}</a>
+            <a mat-list-item *ngIf="option.goToTab" (click)="goTo(option.goToTab, option.title, option.imageBox, option.description)">
+              {{ option.title }}<div><mat-icon class="icon">chevron_right</mat-icon></div>
+            </a>
+          </div> 
+        </mat-nav-list>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+  <div class="col-md-8 d-flex justify-content-start align-items-center">
+    <app-layout-menu-single-image-box *ngIf="!isMultiImageBox()" [menuImage]="imageBox" [description]="description"></app-layout-menu-single-image-box>
+    <app-layout-menu-multi-image-box *ngIf="isMultiImageBox()" [menuImage]="imageBox" [description]="description"></app-layout-menu-multi-image-box>
   </div>
 </div>

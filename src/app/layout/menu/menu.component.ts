@@ -7,20 +7,37 @@ import { MenuTab, MenuBreadcrumb, MenuImage } from './menu-interface';
   styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent implements OnInit {
-  breadcrumbs: MenuBreadcrumb[] = [];
   mainImageBox: MenuImage = {
-    title: 'TODO', src: 'TODO', description: 'TODO', route: 'TODO'
+    title: 'News',
+    src: '../../../assets/img/menu/main/news.png',
+    description: 'News will come back soon'
   };
+  mainDescription = 'Main menu description';
+
   imageBox: MenuImage | MenuImage[] = this.mainImageBox;
+  description: string = this.mainDescription;
+
   selectedTab = 0;
+  breadcrumbs: MenuBreadcrumb[] = [];
+
   tabs: MenuTab[] = [
     {
       id: 0,
       options: [
-        { title: 'Camping', description: '', goToTab: 1, imageBox:
+        { title: 'Camping', description: 'Mange your campaigns here', goToTab: 1, imageBox:
           [
-            { title: 'Create campaign', src: 'TODO', description: 'TODO', route: 'TODO' },
-            { title: 'Show campaigns', src: 'TODO', description: 'TODO', route: 'TODO' }
+            {
+              title: 'Create campaign',
+              src: '../../../assets/img/menu/campaign/create.png',
+              description: 'Create your own campaign and share it with friends',
+              route: 'campaign/create'
+            },
+            {
+              title: 'List of campaigns',
+              src: '../../../assets/img/menu/campaign/list.png',
+              description: 'View all campaigns',
+              route: 'campaign/list'
+            }
           ]
         },
         { title: 'Character sheet', description: 'IN DEVELOPMENT', goToTab: 2, imageBox:
@@ -33,24 +50,14 @@ export class MenuComponent implements OnInit {
     {
       id: 1,
       options: [
-        { title: 'Create campaign', description: 'IN DEVELOPMENT', goToTab: 2, imageBox:
-          [
-            { title: 'IN DEVELOPMENT', src: 'TODO', description: 'IN DEVELOPMENT', route: 'TODO' }
-          ]
-        },
-        { title: 'Show campaigns', description: 'IN DEVELOPMENT', route: 'TODO', imageBox:
-          [
-            { title: 'IN DEVELOPMENT', src: 'TODO', description: 'IN DEVELOPMENT', route: 'TODO' }
-          ]
-        }
+        { title: 'Create campaign', route: 'TODO' },
+        { title: 'Show campaigns', route: 'TODO' }
       ]
     },
     {
       id: 2,
       options: [
-        { title: 'IN DEVELOPMENT', description: 'IN DEVELOPMENT', route: 'TODO', imageBox:
-          { title: 'IN DEVELOPMENT', src: 'TODO', description: 'IN DEVELOPMENT', route: 'TODO' }
-        }
+        { title: 'IN DEVELOPMENT', route: 'TODO' }
       ]
     }
   ];
@@ -60,29 +67,30 @@ export class MenuComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  goTo(index: number, title: string, imageBox: MenuImage | MenuImage[]): void {
+  goTo(index: number, title: string, imageBox: MenuImage | MenuImage[], description: string): void {
     this.breadcrumbs.push({
       index,
       title,
-      imageBox
+      imageBox,
+      description
     });
     this.selectedTab = index;
+    this.imageBox = imageBox;
+    this.description = description;
   }
 
-  goBack(index: number, imageBox: MenuImage | MenuImage[]): void {
+  goBack(index: number, imageBox: MenuImage | MenuImage[], description: string): void {
     this.breadcrumbs = this.breadcrumbs.filter(i => i.index <= index);
     this.selectedTab = index;
     this.imageBox = imageBox;
+    this.description = description;
   }
 
   goBack2Main() {
     this.selectedTab = 0;
     this.breadcrumbs = [];
     this.imageBox = this.mainImageBox;
-  }
-
-  setImageBox(imageBox: MenuImage | MenuImage[]): void {
-    this.imageBox = imageBox;
+    this.description = this.mainDescription;
   }
 
   isMultiImageBox(): boolean {
